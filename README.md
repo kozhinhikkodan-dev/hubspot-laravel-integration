@@ -43,13 +43,19 @@ Ensure that your local environment meets these requirements before proceeding wi
    composer install
    ```
 
-5. **Start the Laravel Development Server**
+5. **Run Database Migrations**
+
+   ```bash
+   php artisan migrate
+   ```
+
+6. **Start the Laravel Development Server**
 
    ```bash
    php artisan serve
    ```
 
-6. **Expose the Local Server to the Internet Using ngrok**
+7. **Expose the Local Server to the Internet Using ngrok**
 
    To handle webhooks, you need to expose your local server:
 
@@ -57,7 +63,7 @@ Ensure that your local environment meets these requirements before proceeding wi
    ngrok http 8000
    ```
 
-7. **Configure HubSpot Webhooks**
+8. **Configure HubSpot Webhooks**
 
    Add the ngrok URL to the HubSpot Webhook configuration:
 
