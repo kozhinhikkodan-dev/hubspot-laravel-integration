@@ -2,6 +2,13 @@
 
 This project integrates HubSpot CRM Contacts using the **HubSpot REST API** and **Webhooks**.
 
+## Requirements
+
+- **PHP**: This project requires PHP version 8.2 or higher.
+- **Laravel**: The project is built using Laravel version 11.21.0
+
+Ensure that your local environment meets these requirements before proceeding with the installation.
+
 ## Running the Project Locally
 
 1. **Clone the Project**
@@ -62,8 +69,5 @@ This project integrates HubSpot CRM Contacts using the **HubSpot REST API** and 
 
 - **Sync with HubSpot button** :
   This is only needed when any system ( HubSpot API or Webhook or Our Application ) fails real-time 2 way sync, we can manualy by triggering this action, **PLEASE NOTE THIS IS NOT PART OF 2 WAY SYNC - JUST AN ADDITIONAL AND NECESSARY FEATURE WHICH WILL NOT NEED WHEN SYSTEM WORKS PERFECTLY FINE**
-
-
-
 
 ---
