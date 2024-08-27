@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactsController;
+use App\Http\Controllers\HubSpotController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,3 +26,7 @@ Route::get('/get-contacts', [ContactsController::class, 'getContacts'])->name('c
 
 // Sync with hubspot
 Route::get('contacts-sync', [ContactsController::class, 'sync'])->name('contacts.sync');
+
+Route::get('/hubspot/authorize', [HubSpotController::class, 'authorize'])->name('hubspot.authorize');
+Route::get('/hubspot/callback', [HubSpotController::class, 'callback'])->name('hubspot.callback');
+Route::get('/hubspot/logout', [HubSpotController::class, 'logout'])->name('hubspot.logout');

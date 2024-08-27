@@ -33,6 +33,7 @@ use App\Enums\LifeCycleStagesEnum;
 </head>
 
 <body>
+    @if(session()->has('hubspot_access_token'))
     <div>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
@@ -55,13 +56,18 @@ use App\Enums\LifeCycleStagesEnum;
         <button type="button" class="btn btn-primary m-2" data-toggle="modal" data-target="#newContactModal">
             Add new Contact
         </button>
-        
+
         @include('includes.contacts_edit_modal')
         @include('includes.contacts_add_modal')
 
         <button type="button" class="btn btn-dark m-2" id="sync-btn" data-toggle="tooltip" data-placement="top" title="Only needed, when failed to sync due webhook or api fails to communicate">
             <i class="fa fa-refresh"></i> &nbsp;Sync with Hubspot
         </button>
+        @if(session()->has('hubspot_access_token'))
+        <a href="{{ route('hubspot.logout') }}" class="btn btn-danger m-2">
+            <i class="fa fa-sign-out"></i> Disconnect HubSpot
+        </a>
+        @endif
 
         <table width="100%" class="table table-hover contacts-datatable" style="width: 100%">
             <thead style="background-color: #f8f9fa;">
@@ -83,7 +89,6 @@ use App\Enums\LifeCycleStagesEnum;
         </table>
 
         <script type="text/javascript">
-
             // For Enabling tooltip 
             $(function() {
                 $('[data-toggle="tooltip"]').tooltip()
@@ -283,5 +288,14 @@ use App\Enums\LifeCycleStagesEnum;
                 $('#edit-contact-submit-btn').data('contact-id', $(this).data('contact-id'));
             });
         </script>
+        @else
+        <div>
+            <h3>Connect to HubSpot</h3>
+            <a target="_blank" href="{{ route('hubspot.authorize') }}" class="btn btn-primary">
+                Authorize HubSpot
+            </a>
+        </div>
+        @endif
 </body>
+
 </html>

@@ -22,10 +22,12 @@ class HubSpotService
             'timeout'  => 30.0,
             'headers'  => [
                 'Accept' => 'application/json',
-                'Authorization' => 'Bearer ' . $this->accessToken,
+                'Authorization' => 'Bearer ' . session('hubspot_access_token'),
             ],
         ]);
     }
+
+
 
     public function getContacts()
     {
